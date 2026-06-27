@@ -10,13 +10,18 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String departmentName;
+    private String name;
 
-    private String headName;
+    private String departmentHead;
 
-    private Integer activeWorkers;
+    private Integer pendingIssues;
+
+    private Integer resolvedIssues;
 
     private String status;
+
+    @Column(length = 1000)
+    private String description;
 
     public Department() {
     }
@@ -29,28 +34,36 @@ public class Department {
         this.id = id;
     }
 
-    public String getDepartmentName() {
-        return departmentName;
+    public String getName() {
+        return name;
     }
 
-    public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getHeadName() {
-        return headName;
+    public String getDepartmentHead() {
+        return departmentHead;
     }
 
-    public void setHeadName(String headName) {
-        this.headName = headName;
+    public void setDepartmentHead(String departmentHead) {
+        this.departmentHead = departmentHead;
     }
 
-    public Integer getActiveWorkers() {
-        return activeWorkers;
+    public Integer getPendingIssues() {
+        return pendingIssues;
     }
 
-    public void setActiveWorkers(Integer activeWorkers) {
-        this.activeWorkers = activeWorkers;
+    public void setPendingIssues(Integer pendingIssues) {
+        this.pendingIssues = pendingIssues;
+    }
+
+    public Integer getResolvedIssues() {
+        return resolvedIssues;
+    }
+
+    public void setResolvedIssues(Integer resolvedIssues) {
+        this.resolvedIssues = resolvedIssues;
     }
 
     public String getStatus() {
@@ -59,5 +72,13 @@ public class Department {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
