@@ -1,31 +1,22 @@
-import axios from "axios";
+import axiosInstance from "../api/axiosConfig";
 
 const uploadService = {
-
   uploadImage: async (file) => {
-
     const formData = new FormData();
+    formData.append("file", file);
 
-    formData.append(
-      "file",
-      file
+    const response = await axiosInstance.post(
+      "/uploads",
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
     );
 
-    const response =
-      await axios.post(
-        "http://localhost:8080/api/uploads",
-        formData,
-        {
-          headers: {
-            "Content-Type":
-              "multipart/form-data"
-          }
-        }
-      );
-
     return response.data;
-  }
-
+  },
 };
 
 export default uploadService;
