@@ -20,6 +20,13 @@ const notificationService = {
       `/notifications/${id}`
     );
     return response.data;
+  },
+
+  clearNotifications: async () => {
+    const response = await axiosInstance.delete(
+      "/notifications"
+    );
+    return response.data;
   }
 
 };
